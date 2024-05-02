@@ -91,8 +91,9 @@ class LinkChecker:
 
         data = {
             "total_links": total_links,
-            "valid_links": valid_links,
-            "invalid_links": invalid_links_count,
+            "valid_links_count": valid_links,
+            "invalid_links_count": invalid_links_count,
+            "duplicate_links": total_links - valid_links - invalid_links,
             "invalid_links": invalid_links
         }
 
