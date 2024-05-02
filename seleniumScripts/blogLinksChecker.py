@@ -49,6 +49,7 @@ class LinkChecker:
 
         total_links = 0
         valid_links = 0
+        invalid_links_count = 0
         invalid_links = []
 
         for j in range(1,14):
@@ -76,6 +77,7 @@ class LinkChecker:
                                 valid_links += 1
                                 print(f"Link '{link['href']}' on Page {j}, Blog {i} is valid.") 
                             else:
+                                invalid_links_count += 1
                                 invalid_links.append({"link": link["href"], "page_number": j, "blog_number": i, "status_code": response.status_code})
                                 print(f"Link '{link['href']}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
 
