@@ -1,23 +1,17 @@
-from flask import Flask, request
+from flask import Flask
+from apscheduler.schedulers.background import BackgroundScheduler
+import seleniumScripts.blogLinksChecker as linkAutomation
 
 app = Flask(__name__)
+scheduler = BackgroundScheduler()
 
-@app.route('/hasura-trigger', methods=['POST'])
-def hasura_trigger():
-    # Handle the Hasura event trigger here
-    # Extract data from the request and perform necessary actions
-    data = request.json
-    print("Event Trigger Data:", data)
+def run_automation():
+    print("Running automation")
+    link_checker = linkAutomation.LinkChecker()
+    link_checker.check_links()
 
-    # Perform necessary actions based on the event data
-
-    return 'Event received successfully'
+scheduler.add_job(run_automation, 'cron', day_of_week='mon-sun', hour=16, minute=6)
 
 if __name__ == '__main__':
-    # Start ngrok
-    from pyngrok import ngrok
-    ngrok_tunnel = ngrok.connect(5000)
-    print('Public URL:', ngrok_tunnel.public_url)
-
-    # Run the Flask app
+    scheduler.start()
     app.run()
