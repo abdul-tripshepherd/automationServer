@@ -1,12 +1,24 @@
 {
-    "total_links": 72,
-    "valid_links": 71,
+    "total_links": 572,
+    "valid_links": 569,
     "invalid_links": [
         {
-            "link": "https://www.tripshepherd.com/st-johns-tours/quidi-vidi-village",
-            "page_number": 1,
-            "blog_number": 2,
-            "status_code": 504
+            "link": "https://www.tripshepherd.com/tours/boston-city-tour",
+            "page_number": 10,
+            "blog_number": 6,
+            "status_code": 301
+        },
+        {
+            "link": "https://www.tripadvisor.com/affiliates",
+            "page_number": 13,
+            "blog_number": 4,
+            "status_code": 403
+        },
+        {
+            "link": "https://partner.worldnomads.com/",
+            "page_number": 13,
+            "blog_number": 4,
+            "status_code": 302
         }
     ]
 }
