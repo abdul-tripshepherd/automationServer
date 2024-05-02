@@ -10,7 +10,7 @@ def run_automation():
     link_checker = linkAutomation.LinkChecker()
     link_checker.check_links()
 
-scheduler.add_job(run_automation, 'cron', day_of_week='mon-sun', hour=16, minute=6)
+scheduler.add_job(run_automation, 'cron', day_of_week='mon-sun', hour=17, minute=47)
 
 if __name__ == '__main__':
     scheduler.start()

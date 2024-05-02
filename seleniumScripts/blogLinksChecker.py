@@ -1,5 +1,6 @@
 import json
 import time
+import traceback
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -40,6 +41,7 @@ class LinkChecker:
         text = msg.as_string()
         server.sendmail('abdulmuhaymintripshepherd@gmail.com', 'abdulmuhaymim@gmail.com', text)
         server.quit()
+        print('Email Sent Succesfully!')
 
     def check_links(self):
 
@@ -82,12 +84,15 @@ class LinkChecker:
                                 print(f"Link '{link['href']}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
 
                     self.driver.back()
-                except:
+                except Exception as e:
+                    print("An error occurred: ", str(e))
+                    print("Traceback: ", traceback.format_exc())
                     pass
 
         data = {
             "total_links": total_links,
             "valid_links": valid_links,
+            "invalid_links": invalid_links_count,
             "invalid_links": invalid_links
         }
 
