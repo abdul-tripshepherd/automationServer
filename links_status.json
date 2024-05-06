@@ -1,24 +1,7 @@
 {
-    "total_links": 572,
-    "valid_links": 569,
-    "invalid_links": [
-        {
-            "link": "https://www.tripshepherd.com/tours/boston-city-tour",
-            "page_number": 10,
-            "blog_number": 6,
-            "status_code": 301
-        },
-        {
-            "link": "https://www.tripadvisor.com/affiliates",
-            "page_number": 13,
-            "blog_number": 4,
-            "status_code": 403
-        },
-        {
-            "link": "https://partner.worldnomads.com/",
-            "page_number": 13,
-            "blog_number": 4,
-            "status_code": 302
-        }
-    ]
+    "total_links": 359,
+    "valid_links_count": 358,
+    "invalid_links_count": 0,
+    "duplicate_links": 1,
+    "invalid_links": []
 }
