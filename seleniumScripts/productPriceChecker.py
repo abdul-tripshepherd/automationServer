@@ -48,9 +48,6 @@ class productChecker:
 
     def verify_product(self):
 
-        adult_count = 0
-        child_count = 0
-        infant_count = 0
         incorrect_prices = []
 
         self.driver.get("https://www.tripshepherd.com")
@@ -63,10 +60,13 @@ class productChecker:
 
         wait = WebDriverWait(self.driver, 10)
 
-        for j in range(1, 41):
+        for j in range(5, 41):
             try:
+                time.sleep(5)
                 all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
                 all_cities.click()
+                print('here')
+                print(j)
                 city = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="hero"]/div[2]/div/div[2]/a[{j}]')))
                 city.click()
                 for i in range(1, 15):
@@ -84,10 +84,8 @@ class productChecker:
                             popup = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Judith Blake"]/button/svg'))).click()
                         except:
                             pass
-                            
-                        
+
                         tour_name = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[3]/div[1]/div[1]/h1'))).text
-                        # print(tour_name)
                         try:
                             if 'Coming Soon' in wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div'))).text:
                                 self.driver.back()
@@ -107,7 +105,12 @@ class productChecker:
                         no_of_pax_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[1]/button')))
                         no_of_pax_expand.click()
 
-                        if 'Private' in tour_name:
+                        pax_check = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[1]'))).text
+                        pax_check_flag = False
+                        if 'Passenger' in pax_check:
+                            pax_check_flag = True
+
+                        if pax_check_flag:
                             
                             print(tour_name + ': Private Tour')
                             no_of_pax = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/p[2]')))
@@ -134,7 +137,7 @@ class productChecker:
                         book_now_price = extract_number(book_now_button.text)
                         book_now_button.click()
 
-                        if 'Private' in tour_name:
+                        if pax_check_flag:
                             no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[1]/h2'))).text)
                             total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/h2'))).text)
                         else:
