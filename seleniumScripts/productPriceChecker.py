@@ -74,7 +74,6 @@ class productChecker:
                         price = match.group(1)
                         price = int(price.replace(',', ''))
                         product_main_price = price
-                        # print("Extracted Price:", price)
                     product.click()
 
                     try:
@@ -127,6 +126,7 @@ class productChecker:
                     self.driver.back()
                 except:
                     pass
+            self.driver.back()
             
 
         time.sleep(20)
