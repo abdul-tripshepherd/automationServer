@@ -65,9 +65,9 @@ class productChecker:
 
         for j in range(1, 41):
             try:
-                all_cities = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
+                all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
                 all_cities.click()
-                city = WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="hero"]/div[2]/div/div[2]/a[{j}]')))
+                city = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="hero"]/div[2]/div/div[2]/a[{j}]')))
                 city.click()
                 for i in range(1, 15):
                     print(str(j) + ':' + str(i))

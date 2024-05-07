@@ -19,36 +19,6 @@
             "name": "Niagara Falls, All Canadian Food Small Group Walking Tour",
             "city_number": 1,
             "product_number": 13
-        },
-        {
-            "name": "Private Tour of Toronto",
-            "city_number": 3,
-            "product_number": 7
-        },
-        {
-            "name": "Best of Boston Tour",
-            "city_number": 9,
-            "product_number": 1
-        },
-        {
-            "name": "Best of Miami with Cruise Port Pick-up and Airport Drop-off",
-            "city_number": 10,
-            "product_number": 1
-        },
-        {
-            "name": "Best of Miami Tour from Fort Lauderdale",
-            "city_number": 10,
-            "product_number": 2
-        },
-        {
-            "name": "Private Tour of Miami",
-            "city_number": 10,
-            "product_number": 7
-        },
-        {
-            "name": "Best of Miami Tour from Fort Lauderdale",
-            "city_number": 12,
-            "product_number": 1
         }
     ]
 }
