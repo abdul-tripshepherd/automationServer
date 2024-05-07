@@ -53,6 +53,7 @@ class productChecker:
         infant_count = 0
 
         self.driver.get("https://www.tripshepherd.com")
+        time.sleep(5)
 
         def extract_number(text):
             match = re.search(r'\d+', text)
