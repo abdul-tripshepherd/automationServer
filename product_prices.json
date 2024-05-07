@@ -19,6 +19,11 @@
             "name": "Niagara Falls, All Canadian Food Small Group Walking Tour",
             "city_number": 1,
             "product_number": 13
+        },
+        {
+            "name": "Private Tour of Toronto",
+            "city_number": 3,
+            "product_number": 7
         }
     ]
 }
