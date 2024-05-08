@@ -60,7 +60,7 @@ class productChecker:
 
         wait = WebDriverWait(self.driver, 10)
 
-        for j in range(5, 41):
+        for j in range(2, 41):
             try:
                 time.sleep(5)
                 all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
@@ -69,7 +69,7 @@ class productChecker:
                 # print(j)
                 city = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="hero"]/div[2]/div/div[2]/a[{j}]')))
                 city.click()
-                for i in range(7, 15):
+                for i in range(1, 15):
                     print(str(j) + ':' + str(i))
                     try:
                         product = wait.until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="feature_experiences_cards"]/div/a[{i}]')))
@@ -136,14 +136,24 @@ class productChecker:
 
                         book_now_button = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/button')))
                         book_now_price = extract_number(book_now_button.text)
-                        print(book_now_price)
+                        # print(book_now_price)
                         book_now_button.click()
+                        # time.sleep(2)
 
                         if pax_check_flag:
-                            no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[1]/h2'))).text)
-                            total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/h2'))).text)
-                            print(no_of_pax_price_2)
-                            print(total_price)
+                            # print('here 1')
+                            try:
+                                no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[1]/h2'))).text)
+                            except:
+                                no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[1]/h2'))).text)
+                            # print('here 2')
+                            
+                            try:
+                                total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/h2'))).text)
+                            except:
+                                total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/h2'))).text)
+                            # print(no_of_pax_price_2)
+                            # print(total_price)
                         else:
                             adult_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[1]/h2'))).text)
                             child_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[2]/h2'))).text)
