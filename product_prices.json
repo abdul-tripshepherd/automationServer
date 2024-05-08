@@ -1,3 +1,34 @@
 {
-    "incorrect_prices": []
+    "incorrect_prices": [
+        {
+            "name": "Ultimate Niagara Falls (Canada) Tour with Helicopter Ride + Skylon Tower Lunch",
+            "city_number": 1,
+            "product_number": 3
+        },
+        {
+            "name": "Night on Niagara Walking Tour with Fireworks Cruise + Dinner",
+            "city_number": 1,
+            "product_number": 6
+        },
+        {
+            "name": "Light Up The Falls Plus Dinner",
+            "city_number": 1,
+            "product_number": 8
+        },
+        {
+            "name": "Niagara Falls, All Canadian Food Small Group Walking Tour",
+            "city_number": 1,
+            "product_number": 13
+        },
+        {
+            "name": "Best of Niagara Falls USA Tour with Helicopter Ride",
+            "city_number": 2,
+            "product_number": 2
+        },
+        {
+            "name": "Private Tour of Toronto",
+            "city_number": 3,
+            "product_number": 7
+        }
+    ]
 }
