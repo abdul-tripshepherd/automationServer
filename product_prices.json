@@ -1,26 +1,6 @@
 {
     "incorrect_prices": [
         {
-            "name": "Ultimate Niagara Falls (Canada) Tour with Helicopter Ride + Skylon Tower Lunch",
-            "city_number": 1,
-            "product_number": 3
-        },
-        {
-            "name": "Night on Niagara Walking Tour with Fireworks Cruise + Dinner",
-            "city_number": 1,
-            "product_number": 6
-        },
-        {
-            "name": "Light Up The Falls Plus Dinner",
-            "city_number": 1,
-            "product_number": 8
-        },
-        {
-            "name": "Niagara Falls, All Canadian Food Small Group Walking Tour",
-            "city_number": 1,
-            "product_number": 13
-        },
-        {
             "name": "Best of Niagara Falls USA Tour with Helicopter Ride",
             "city_number": 2,
             "product_number": 2
@@ -29,6 +9,91 @@
             "name": "Private Tour of Toronto",
             "city_number": 3,
             "product_number": 7
+        },
+        {
+            "name": "Private Tour of PEI",
+            "city_number": 6,
+            "product_number": 3
+        },
+        {
+            "name": "Scenic Chicago Night Tour",
+            "city_number": 7,
+            "product_number": 2
+        },
+        {
+            "name": "Austin Red River Street Food Walking and BBQ Tour",
+            "city_number": 8,
+            "product_number": 6
+        },
+        {
+            "name": "Best of Boston Tour",
+            "city_number": 9,
+            "product_number": 1
+        },
+        {
+            "name": "Private Tour of Boston",
+            "city_number": 9,
+            "product_number": 3
+        },
+        {
+            "name": "Best of Miami with Cruise Port Pick-up and Airport Drop-off",
+            "city_number": 10,
+            "product_number": 1
+        },
+        {
+            "name": "Best of Miami Tour from Fort Lauderdale",
+            "city_number": 10,
+            "product_number": 2
+        },
+        {
+            "name": "Private Tour of Miami",
+            "city_number": 10,
+            "product_number": 7
+        },
+        {
+            "name": "Best of Miami Tour from Fort Lauderdale",
+            "city_number": 12,
+            "product_number": 1
+        },
+        {
+            "name": "Best of Philadelphia Small Group Tour",
+            "city_number": 16,
+            "product_number": 1
+        },
+        {
+            "name": "Best of Philadelphia Small Group Walking Tour",
+            "city_number": 16,
+            "product_number": 3
+        },
+        {
+            "name": "Best of Savannah Small Group Tour",
+            "city_number": 18,
+            "product_number": 1
+        },
+        {
+            "name": "Savannah Walking Ghost Tour",
+            "city_number": 18,
+            "product_number": 3
+        },
+        {
+            "name": "Best of Memphis Walking Tour with Riverboat Cruise",
+            "city_number": 25,
+            "product_number": 1
+        },
+        {
+            "name": "Best of Key West Walking Tour with Glass Bottom Boat Cruise",
+            "city_number": 29,
+            "product_number": 2
+        },
+        {
+            "name": "Best of Dallas Tour with Observation Deck",
+            "city_number": 30,
+            "product_number": 1
+        },
+        {
+            "name": "Best of Washington Tour w Boat Cruise",
+            "city_number": 37,
+            "product_number": 1
         }
     ]
 }
