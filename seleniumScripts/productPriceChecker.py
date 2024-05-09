@@ -60,7 +60,7 @@ class productChecker:
 
         wait = WebDriverWait(self.driver, 10)
 
-        for j in range(2, 41):
+        for j in range(1, 41):
             try:
                 time.sleep(5)
                 all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
@@ -69,7 +69,8 @@ class productChecker:
                 # print(j)
                 city = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="hero"]/div[2]/div/div[2]/a[{j}]')))
                 city.click()
-                for i in range(1, 15):
+                count_product = len(wait.until(EC.visibility_of_all_elements_located((By.XPATH, '//*[@id="feature_experiences_cards"]/div/a'))))
+                for i in range(1, count_product+1):
                     print(str(j) + ':' + str(i))
                     try:
                         product = wait.until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="feature_experiences_cards"]/div/a[{i}]')))
@@ -81,6 +82,8 @@ class productChecker:
                             product_main_price = price
                         product.click()
 
+                        time.sleep(5)
+                        # break
                         try:
                             popup = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Judith Blake"]/button/svg'))).click()
                         except:
@@ -113,7 +116,7 @@ class productChecker:
 
                         if pax_check_flag:
                             
-                            print(tour_name + ': Private Tour')
+                            # print(tour_name + ': Private Tour')
                             no_of_pax = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/p[2]')))
                             no_of_pax_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/p[2]/span'))).text)
                             # print(no_of_pax_price)
@@ -169,7 +172,9 @@ class productChecker:
 
                         self.driver.back()
                         self.driver.back()
-                    except:
+                    except Exception as e:
+                        print("An error occurred: ", str(e))
+                        print("Traceback: ", traceback.format_exc())
                         pass
                 self.driver.back()
             except:
@@ -188,6 +193,6 @@ class productChecker:
 
 
 
-priceChecker = productChecker()
-priceChecker.verify_product()
+# priceChecker = productChecker()
+# priceChecker.verify_product()
     
