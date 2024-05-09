@@ -14,6 +14,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 import dotenv
+import random
 
 class productChecker:
     def __init__(self):
@@ -103,9 +104,25 @@ class productChecker:
                         
                         calendar_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/img')))
                         calendar_expand.click()
-                        date_btn = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[31]/div')))
-                        calendar_price = extract_number(date_btn.text)
-                        date_btn.click()
+                        # date_btn = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[31]/div')))
+                        # calendar_price = extract_number(date_btn.text)
+                        # date_btn.click()
+                        while True:
+                            random_day = random.randint(1, 31)
+                            
+                            date_xpath = f"//*[@id=\"__next\"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]"
+                            try:
+                                WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
+                                date = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, date_xpath)))
+                                calendar_price = extract_number(WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
+                                # print(calendar_price)
+                                date.click()
+                                # print(str(random_day) + ': Available')
+                                break
+                            except:
+                                # print(str(random_day) + ': Unavailable')
+                                pass
+
                         no_of_pax_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[1]/button')))
                         no_of_pax_expand.click()
 
