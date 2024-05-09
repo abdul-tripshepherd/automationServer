@@ -23,7 +23,7 @@ def new_blog_event():
         json.dump(data, f)
     print(data)
     # data_dict = json.loads(data)
-    newBlogCheck.CanonicalVerifier().check_link(data['payload']['event']['data']['new']['canonical'])
+    newBlogCheck.CanonicalVerifier().check_link(data['event']['data']['new']['canonical'])
 
 @app.route('/automation/new_product', methods=['POST'])
 def new__event():
