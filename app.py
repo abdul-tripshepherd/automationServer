@@ -1,6 +1,7 @@
 from flask import Flask, request
 from apscheduler.schedulers.background import BackgroundScheduler
 import seleniumScripts.blogLinksChecker as linkAutomation
+import triggerScripts.new_blog as newBlogCheck
 import subprocess
 import time
 import json
@@ -21,6 +22,8 @@ def new_blog_event():
     with open(filename, 'w') as f:
         json.dump(data, f)
     print(data)
+    # data_dict = json.loads(data)
+    newBlogCheck.CanonicalVerifier().check_link(data['payload']['event']['data']['new']['canonical'])
 
 @app.route('/automation/new_product', methods=['POST'])
 def new__event():
