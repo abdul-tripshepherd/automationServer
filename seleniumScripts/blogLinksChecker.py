@@ -82,7 +82,7 @@ class LinkChecker:
                                 invalid_links_count += 1
                                 invalid_links.append({"link": link["href"], "page_number": j, "blog_number": i, "status_code": response.status_code})
                                 print(f"Link '{link['href']}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
-
+                    # Here insert code to check buttons
                     self.driver.back()
                 except Exception as e:
                     print("An error occurred: ", str(e))
