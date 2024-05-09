@@ -11,7 +11,7 @@ scheduler = BackgroundScheduler()
 time.sleep(5)
 
 ngrok_command = "ngrok http --domain=crucial-penguin-secretly.ngrok-free.app 5000"
-ngrok_process = subprocess.Popen(ngrok_command.split())
+# ngrok_process = subprocess.Popen(ngrok_command.split())
 
 @app.route('/automation/new_blog', methods=['POST'])
 def new_blog_event():
