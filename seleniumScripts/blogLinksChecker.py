@@ -66,29 +66,28 @@ class LinkChecker:
                     css_selector = base_selector.format(i)
                     element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, css_selector)))
                     element.click()
+                    if i == 1: 
+                        time.sleep(2)
                     element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,"#__next > main > div.min-h-screen > div > div.lg\\:flex-row.flex-col.flex.gap-10.items-start.justify-center.relative.px-\\[4\\%\\].lg\\:px-\\[6\\%\\] > div.slug-__BLOGPAGE-sc-3179693b-0.kVEeAj")))
                     html_content = element.get_attribute("innerHTML")
                     soup = BeautifulSoup(html_content, "html.parser")
-                    paragraphs = soup.find_all("p")
-                    for paragraph in paragraphs:
-                        links = paragraph.find_all("a", href=True)
-                        for link in links:
-                            total_links += 1
-                            response = requests.head(link["href"])
-                            if response.status_code == 200:
-                                valid_links += 1
-                                print(f"Link '{link['href']}' on Page {j}, Blog {i} is valid.") 
-                            else:
-                                invalid_links_count += 1
-                                invalid_links.append({"link": link["href"], "page_number": j, "blog_number": i, "status_code": response.status_code})
-                                print(f"Link '{link['href']}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
-                    # Here insert code to check buttons
+                    anchor_tags = soup.find_all("a")
+                    links = [tag.get("href") for tag in anchor_tags]
+                    for link in links:
+                        total_links += 1
+                        response = requests.head(link)
+                        if response.status_code == 200:
+                            valid_links += 1
+                            print(f"Link '{link}' on Page {j}, Blog {i} is valid.") 
+                        else:
+                            invalid_links_count += 1
+                            invalid_links.append({"link": link, "page_number": j, "blog_number": i, "status_code": response.status_code})
+                            print(f"Link '{link}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
                     self.driver.back()
                 except Exception as e:
                     print("An error occurred: ", str(e))
                     print("Traceback: ", traceback.format_exc())
                     pass
-
         data = {
             "total_links": total_links,
             "valid_links_count": valid_links,
@@ -97,9 +96,11 @@ class LinkChecker:
             "invalid_links": invalid_links
         }
 
-        with open("links_status.json", "w") as json_file:
+        with open("links_status_temp.json", "w") as json_file:
             json.dump(data, json_file, indent=4)
-        LinkChecker.send_email()
+        # LinkChecker.send_email()
 
         self.driver.quit()
     
+sardar = LinkChecker()
+sardar.check_links()
