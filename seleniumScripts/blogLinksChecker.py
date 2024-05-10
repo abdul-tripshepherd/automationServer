@@ -98,7 +98,7 @@ class LinkChecker:
 
         with open("links_status_temp.json", "w") as json_file:
             json.dump(data, json_file, indent=4)
-        LinkChecker.send_email()
+        # LinkChecker.send_email()
 
         self.driver.quit()
     

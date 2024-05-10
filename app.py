@@ -18,16 +18,19 @@ ngrok_command = "ngrok http --domain=crucial-penguin-secretly.ngrok-free.app 500
 def new_blog_event():
     data = request.json
     timestamp = int(time.time())
-    filename = f"sample_data_{timestamp}.json"
+    filename = f"blog_payload_{timestamp}.json"
     with open(filename, 'w') as f:
         json.dump(data, f)
     print(data)
-    # data_dict = json.loads(data)
     newBlogCheck.CanonicalVerifier().check_link(data['event']['data']['new']['canonical'])
 
 @app.route('/automation/new_product', methods=['POST'])
-def new__event():
+def new_product_event():
     data = request.json
+    timestamp = int(time.time())
+    filename = f"product_payload_{timestamp}.json"
+    with open(filename, 'w') as f:
+        json.dump(data, f)
     print(data)
 
 def scheduled_automation():
@@ -39,4 +42,4 @@ scheduler.add_job(scheduled_automation, 'cron', day_of_week='mon-sun', hour=13, 
 
 if __name__ == '__main__':
     scheduler.start()
-    app.run()
+    app.run(debug=True)
