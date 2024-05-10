@@ -82,6 +82,7 @@ class productChecker:
                             price = int(price.replace(',', ''))
                             product_main_price = price
                         product.click()
+                        issues = []
 
                         time.sleep(5)
                         # break
@@ -195,6 +196,24 @@ class productChecker:
                         if total_price == book_now_price == no_of_pax_price == no_of_pax_price_2 and starting_from_price == calendar_price == product_main_price:
                             print(tour_name + ": Prices are correct")
                         else:
+                            if total_price != book_now_price:
+                                issues.append('Checkout Page Total Price != Book Now Button Price')
+                            if book_now_price != no_of_pax_price:
+                                issues.append('Book Now Button Price != Prices In Pax Dropdown')
+                            if no_of_pax_price != no_of_pax_price_2:
+                                issues.append('Prices In Pax Dropdown != Individual Prices in Checkout')
+                            if book_now_price != no_of_pax_price_2:
+                                issues.append('Book Now Button Price != Individual Prices in Checkout')
+                            if total_price != no_of_pax_price:
+                                issues.append('Checkout Page Total Price != Prices In Pax Dropdown')
+                            if total_price != no_of_pax_price_2:
+                                issues.append('Checkout Page Total Price != Individual Prices in Checkout')
+                            if starting_from_price != calendar_price:
+                                issues.append('Advertised Price != Calendar Price')
+                            if starting_from_price != product_main_price:
+                                issues.append('Advertised Price != Main Page Card Price')
+                            if calendar_price != product_main_price:
+                                issues.append('Calendar Price != Main Page Card Price')
                             print(tour_name + ": Prices are incorrect")
                             incorrect_prices.append({"name": tour_name, "city_number": j, "product_number": i})
 
