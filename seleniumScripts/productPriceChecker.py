@@ -213,7 +213,7 @@ class productChecker:
                             no_of_pax_price_2 =child_price_2 + adult_price_2
                             total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[3]/div[2]/h2'))).text)
 
-                        if total_price == book_now_price == no_of_pax_price == no_of_pax_price_2 and starting_from_price == calendar_price == product_main_price:
+                        if total_price == book_now_price == no_of_pax_price == no_of_pax_price_2 and adult_price == starting_from_price == calendar_price == product_main_price and adult_price != child_price  :
                             print(tour_name + ": Prices are correct")
                         else:
                             if total_price != book_now_price:
@@ -234,6 +234,10 @@ class productChecker:
                                 issues.append('Advertised Price != Main Page Card Price')
                             if calendar_price != product_main_price:
                                 issues.append('Calendar Price != Main Page Card Price')
+                            if adult_price == child_price:
+                                issues.append('Child Price & Adult Price Is Same')
+                            if adult_price != starting_from_price:
+                                issues.append('Adverised Price != Adult Price')
                             print(tour_name + ": Prices are incorrect")
                             incorrect_prices.append({"name": tour_name, "city_number": j, "product_number": i})
 
