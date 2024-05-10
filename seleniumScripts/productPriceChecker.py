@@ -61,7 +61,7 @@ class productChecker:
 
         wait = WebDriverWait(self.driver, 10)
 
-        for j in range(17, 41):
+        for j in range(1, 41):
             try:
                 time.sleep(5)
                 all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
