@@ -92,7 +92,7 @@ class productChecker:
                             pass
 
                         try:
-                            max_no_p = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/p[1]')))
+                            max_no_p = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/p[1]')))
                             if 'Maximum' in max_no_p.text:
                                 max_limit_flag = True
                         except:
