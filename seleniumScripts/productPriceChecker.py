@@ -61,7 +61,7 @@ class productChecker:
 
         wait = WebDriverWait(self.driver, 10)
 
-        for j in range(1, 41):
+        for j in range(17, 41):
             try:
                 time.sleep(5)
                 all_cities = WebDriverWait(self.driver, 25).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="hero"]/div[1]/button')))
@@ -75,6 +75,7 @@ class productChecker:
                     print(str(j) + ':' + str(i))
                     try:
                         product = wait.until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="feature_experiences_cards"]/div/a[{i}]')))
+                        # product = wait.until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="feature_experiences_cards"]/div/a[1]')))
                         
                         match = re.search(r'\$([\d,]+)$', product.text.splitlines()[-1])
                         if match:
@@ -92,9 +93,12 @@ class productChecker:
                             pass
 
                         try:
-                            max_no_p = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/p[1]')))
+                            max_no_p = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/p[1]')))
                             if 'Maximum' in max_no_p.text:
                                 max_limit_flag = True
+                                print('Max')
+                            else:
+                                max_limit_flag = False
                         except:
                             max_limit_flag = False
 
@@ -124,13 +128,13 @@ class productChecker:
                             random_day = random.randint(1, 31)
                             try:
                                 try:
-                                    WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
-                                    date = WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.XPATH, f"//*[@id=\"__next\"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]")))
-                                    calendar_price = extract_number(WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
+                                    WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
+                                    date = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f"//*[@id=\"__next\"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]")))
+                                    calendar_price = extract_number(WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
                                 except:
-                                    WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
-                                    date = WebDriverWait(self.driver, 2).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]')))
-                                    calendar_price = extract_number(WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
+                                    WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
+                                    date = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]')))
+                                    calendar_price = extract_number(WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
                                 # print(calendar_price)
                                 date.click()
                                 # print(str(random_day) + ': Available')
@@ -238,14 +242,14 @@ class productChecker:
                                 issues.append('Child Price & Adult Price Is Same')
                             if adult_price != starting_from_price:
                                 issues.append('Adverised Price != Adult Price')
-                            print(tour_name + ": Prices are incorrect")
-                            incorrect_prices.append({"name": tour_name, "city_number": j, "product_number": i})
+                            print(tour_name + ": Prices are incorrect" + '/n Issues: ' + issues)
+                            incorrect_prices.append({"name": tour_name, "city_number": j, "product_number": i, 'issues' : issues})
 
                         self.driver.back()
                         self.driver.back()
                     except Exception as e:
-                        print("An error occurred: ", str(e))
-                        print("Traceback: ", traceback.format_exc())
+                        # print("An error occurred: ", str(e))
+                        # print("Traceback: ", traceback.format_exc())
                         pass
                 self.driver.back()
             except:
@@ -264,6 +268,6 @@ class productChecker:
 
 
 
-# priceChecker = productChecker()
-# priceChecker.verify_product()
+priceChecker = productChecker()
+priceChecker.verify_product()
     
