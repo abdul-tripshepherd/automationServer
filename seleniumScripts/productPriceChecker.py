@@ -88,7 +88,7 @@ class productChecker:
                         time.sleep(5)
                         # break
                         try:
-                            popup = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Judith Blake"]/button/svg'))).click()
+                            popup = WebDriverWait(self.driver,5).until(EC.visibility_of_element_located((By.XPATH, '//*[@id="Judith Blake"]/button/svg'))).click()
                         except:
                             pass
 
@@ -100,6 +100,7 @@ class productChecker:
                             else:
                                 max_limit_flag = False
                         except:
+                            print('103')
                             max_limit_flag = False
 
                         tour_name = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[3]/div[1]/div[1]/h1'))).text
@@ -113,12 +114,14 @@ class productChecker:
                         try:
                             starting_from_text = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/p')))
                         except:
+                            print('116')
                             starting_from_text = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/p')))
                         starting_from_price = extract_number(starting_from_text.text)
                         
                         try:
                             calendar_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/img')))
                         except:
+                            print('122')
                             calendar_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/img')))
                         calendar_expand.click()
                         # date_btn = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[31]/div')))
@@ -148,6 +151,7 @@ class productChecker:
                             no_of_pax_expand.click()
                             pax_check = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[1]'))).text
                         except:
+                            print('151')
                             no_of_pax_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[1]/button')))
                             no_of_pax_expand.click()
                             pax_check = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[1]'))).text
@@ -170,6 +174,7 @@ class productChecker:
                                 add_child = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[2]/div[2]/div[3]')))
                                 add_child_price = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[2]/div[1]/div[2]/div/span')))
                             except:
+                                print('173')
                                 add_adult = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div[1]/div[2]/div[3]')))
                                 add_adult_price = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div[1]/div[1]/div[2]/div/span')))
                                 add_child = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/div[2]/div[2]/div[2]/div[3]')))
@@ -190,6 +195,7 @@ class productChecker:
                         try:
                             book_now_button = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/button')))
                         except:
+                            print('193')
                             book_now_button = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div/button')))
                         book_now_price = extract_number(book_now_button.text)
                         # print(book_now_price)
@@ -199,8 +205,9 @@ class productChecker:
                         if pax_check_flag:
                             # print('here 1')
                             try:
-                                no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[1]/h2'))).text)
+                                no_of_pax_price_2 = extract_number(WebDriverWait(self.driver,10).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[1]/h2'))).text)
                             except:
+                                print('204')
                                 no_of_pax_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[1]/h2'))).text)
                             # print('here 2')
                             
@@ -208,10 +215,11 @@ class productChecker:
                                 total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[4]/div[2]/div[2]/h2'))).text)
                             except:
                                 total_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[2]/div[2]/h2'))).text)
+                                print('212')
                             # print(no_of_pax_price_2)
                             # print(total_price)
                         else:
-                            adult_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[1]/h2'))).text)
+                            adult_price_2 = extract_number(WebDriverWait(self.driver,10).until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[1]/h2'))).text)
                             child_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[2]/h2'))).text)
                             # infant_price_2 = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH,'//*[@id="__next"]/main/div[2]/div/div[2]/div[1]/div[1]/div[3]/div[3]/h2'))).text)
                             no_of_pax_price_2 =child_price_2 + adult_price_2
@@ -248,6 +256,7 @@ class productChecker:
                         self.driver.back()
                         self.driver.back()
                     except Exception as e:
+                        print('253')
                         # print("An error occurred: ", str(e))
                         # print("Traceback: ", traceback.format_exc())
                         pass
