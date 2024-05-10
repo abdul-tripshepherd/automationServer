@@ -131,6 +131,10 @@ class productChecker:
                             random_day = random.randint(1, 31)
                             try:
                                 try:
+                                    cal = []
+                                    for k in range(1,31):
+                                        cal[i] = extract_number(WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{i}]/div'))).text)
+                                    print(cal)
                                     WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
                                     date = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f"//*[@id=\"__next\"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]")))
                                     calendar_price = extract_number(WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
