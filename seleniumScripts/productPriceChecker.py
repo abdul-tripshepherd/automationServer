@@ -14,6 +14,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 import dotenv
+import random
 
 class productChecker:
     def __init__(self):
@@ -89,6 +90,13 @@ class productChecker:
                         except:
                             pass
 
+                        try:
+                            max_no_p = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/p[1]')))
+                            if 'Maximum' in max_no_p.text:
+                                max_limit_flag = True
+                        except:
+                            max_limit_flag = False
+
                         tour_name = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[3]/div[1]/div[1]/h1'))).text
                         try:
                             if 'Coming Soon' in wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div/div/div'))).text:
@@ -103,9 +111,25 @@ class productChecker:
                         
                         calendar_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/img')))
                         calendar_expand.click()
-                        date_btn = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[31]/div')))
-                        calendar_price = extract_number(date_btn.text)
-                        date_btn.click()
+                        # date_btn = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[31]/div')))
+                        # calendar_price = extract_number(date_btn.text)
+                        # date_btn.click()
+                        while True:
+                            random_day = random.randint(1, 31)
+                            
+                            date_xpath = f"//*[@id=\"__next\"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]"
+                            try:
+                                WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div')))
+                                date = WebDriverWait(self.driver, 5).until(EC.visibility_of_element_located((By.XPATH, date_xpath)))
+                                calendar_price = extract_number(WebDriverWait(self.driver, 1).until(EC.visibility_of_element_located((By.XPATH, f'//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/div/div/div[2]/button[{random_day}]/div'))).text)
+                                # print(calendar_price)
+                                date.click()
+                                # print(str(random_day) + ': Available')
+                                break
+                            except:
+                                # print(str(random_day) + ': Unavailable')
+                                pass
+
                         no_of_pax_expand = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[1]/button')))
                         no_of_pax_expand.click()
 
@@ -120,22 +144,26 @@ class productChecker:
                             no_of_pax = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/p[2]')))
                             no_of_pax_price = extract_number(wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div/p[2]/span'))).text)
                             # print(no_of_pax_price)
-                            no_of_pax.click()
+                            if not max_limit_flag:
+                                no_of_pax.click()
                         else:
                             
                             add_adult = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[1]/div[2]/div[3]')))
-                            add_adult.click()
                             add_adult_price = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[1]/div[1]/div[2]/div/span')))
                             adult_price = extract_number(add_adult_price.text)
                             add_child = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[2]/div[2]/div[3]')))
-                            add_child.click()
                             add_child_price = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[2]/div[1]/div[2]/div/span')))
                             child_price = extract_number(add_child_price.text)
                             # add_infant = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[3]/div[2]/div[3]')))
                             # add_infant.click()
                             # add_infant_price = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/div[3]/div/div[2]/div[3]/div[1]/div[2]/div/span')))
                             # infant_price = extract_number(add_infant_price.text)
-                            no_of_pax_price = child_price + adult_price*3
+                            if max_limit_flag:
+                                no_of_pax_price = adult_price*2
+                            else:
+                                add_adult.click()
+                                add_child.click()
+                                no_of_pax_price = child_price + adult_price*3
 
                         book_now_button = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@id="__next"]/main/div[2]/div/div[2]/div[2]/div/div/div[1]/div/div/button')))
                         book_now_price = extract_number(book_now_button.text)
