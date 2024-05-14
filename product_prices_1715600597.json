@@ -55,14 +55,6 @@
             ]
         },
         {
-            "name": "Private Tour of Niagara Falls USA",
-            "city_number": 2,
-            "product_number": 6,
-            "issues": [
-                "Adverised Price != Adult Price"
-            ]
-        },
-        {
             "name": "Private Tour of Toronto",
             "city_number": 3,
             "product_number": 7,
@@ -73,25 +65,9 @@
             ]
         },
         {
-            "name": "Private Tour of Halifax Including Peggy's Cove",
-            "city_number": 4,
-            "product_number": 5,
-            "issues": [
-                "Adverised Price != Adult Price"
-            ]
-        },
-        {
             "name": "Private Tour of San Antonio",
             "city_number": 5,
             "product_number": 6,
-            "issues": [
-                "Adverised Price != Adult Price"
-            ]
-        },
-        {
-            "name": "Private Exclusive Scenic San Antonio Night Tour with Riverwalk Boat Tour",
-            "city_number": 5,
-            "product_number": 7,
             "issues": [
                 "Adverised Price != Adult Price"
             ]
@@ -130,14 +106,6 @@
             "issues": [
                 "Advertised Price != Main Page Card Price",
                 "Calendar Price != Main Page Card Price"
-            ]
-        },
-        {
-            "name": "Private Tour of Austin",
-            "city_number": 8,
-            "product_number": 7,
-            "issues": [
-                "Adverised Price != Adult Price"
             ]
         },
         {
@@ -235,14 +203,6 @@
             ]
         },
         {
-            "name": "Private Tour of Ottawa",
-            "city_number": 13,
-            "product_number": 3,
-            "issues": [
-                "Adverised Price != Adult Price"
-            ]
-        },
-        {
             "name": "Best of Ottawa Small Group Walking Tour with Boat Cruise",
             "city_number": 13,
             "product_number": 4,
@@ -336,6 +296,14 @@
             "product_number": 4,
             "issues": [
                 "Child Price & Adult Price Is Same"
+            ]
+        },
+        {
+            "name": "Best of Memphis Walking Tour with Riverboat Cruise",
+            "city_number": 25,
+            "product_number": 1,
+            "issues": [
+                "Adverised Price != Adult Price"
             ]
         },
         {
