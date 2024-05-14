@@ -2,6 +2,7 @@
     "incorrect_prices": [
         {
             "name": "Night on Niagara Tour with Fireworks Boat Cruise",
+            "city_name":"Niagra falls, Canada",
             "city_number": 1,
             "product_number": 2,
             "issues": [
@@ -10,6 +11,7 @@
         },
         {
             "name": "Ultimate Niagara Falls (Canada) Tour with Helicopter Ride + Skylon Tower Lunch",
+            "city_name":"Niagra falls, Canada",
             "city_number": 1,
             "product_number": 3,
             "issues": [
@@ -19,6 +21,7 @@
         },
         {
             "name": "Night on Niagara Walking Tour with Fireworks Cruise + Dinner",
+            "city_name":"Niagra falls, Canada",
             "city_number": 1,
             "product_number": 6,
             "issues": [
@@ -29,6 +32,7 @@
         },
         {
             "name": "Light Up The Falls Plus Dinner",
+            "city_name":"Niagra falls, Canada",
             "city_number": 1,
             "product_number": 8,
             "issues": [
@@ -38,6 +42,7 @@
         },
         {
             "name": "Niagara Falls, All Canadian Food Small Group Walking Tour",
+            "city_name":"Niagra falls, Canada",
             "city_number": 1,
             "product_number": 13,
             "issues": [
@@ -47,6 +52,7 @@
         },
         {
             "name": "Best of Niagara Falls USA Tour with Helicopter Ride",
+            "city_name":"Niagra falls, USA",
             "city_number": 2,
             "product_number": 2,
             "issues": [
@@ -56,6 +62,7 @@
         },
         {
             "name": "Private Tour of Toronto",
+            "city_name":"Toronto",
             "city_number": 3,
             "product_number": 7,
             "issues": [
@@ -66,6 +73,7 @@
         },
         {
             "name": "Private Tour of San Antonio",
+            "city_name":"San Antonio",
             "city_number": 5,
             "product_number": 6,
             "issues": [
@@ -74,6 +82,7 @@
         },
         {
             "name": "Private Tour of PEI",
+            "city_name":"Prince Edward Island",
             "city_number": 6,
             "product_number": 3,
             "issues": [
@@ -84,6 +93,7 @@
         },
         {
             "name": "Scenic Chicago Night Tour",
+            "city_name":"Chicago",
             "city_number": 7,
             "product_number": 2,
             "issues": [
@@ -93,6 +103,7 @@
         },
         {
             "name": "Private Tour of Chicago",
+            "city_name":"Chicago",
             "city_number": 7,
             "product_number": 3,
             "issues": [
@@ -101,6 +112,7 @@
         },
         {
             "name": "Austin Red River Street Food Walking and BBQ Tour",
+            "city_name":"Austin",
             "city_number": 8,
             "product_number": 6,
             "issues": [
@@ -110,6 +122,7 @@
         },
         {
             "name": "Best of Boston Tour",
+            "city_name":"Boston",
             "city_number": 9,
             "product_number": 1,
             "issues": [
@@ -119,6 +132,7 @@
         },
         {
             "name": "Private Tour of Boston",
+            "city_name":"Boston",
             "city_number": 9,
             "product_number": 3,
             "issues": [
@@ -129,6 +143,7 @@
         },
         {
             "name": "Best of Miami with Cruise Port Pick-up and Airport Drop-off",
+            "city_name":"Miami",
             "city_number": 10,
             "product_number": 1,
             "issues": [
@@ -138,6 +153,7 @@
         },
         {
             "name": "Best of Miami Tour from Fort Lauderdale",
+            "city_name":"Miami",
             "city_number": 10,
             "product_number": 2,
             "issues": [
@@ -148,6 +164,7 @@
         },
         {
             "name": "Private Tour of Miami",
+            "city_name":"Miami",
             "city_number": 10,
             "product_number": 7,
             "issues": [
@@ -158,6 +175,7 @@
         },
         {
             "name": "Best of Montreal Tour",
+            "city_name":"Montreal",
             "city_number": 11,
             "product_number": 1,
             "issues": [
@@ -166,6 +184,7 @@
         },
         {
             "name": "Scenic Montreal Night Tour",
+            "city_name":"Montreal",
             "city_number": 11,
             "product_number": 2,
             "issues": [
@@ -174,6 +193,7 @@
         },
         {
             "name": "Best of Montreal Food Walking Tour",
+            "city_name":"Montreal",
             "city_number": 11,
             "product_number": 5,
             "issues": [
@@ -184,6 +204,7 @@
         },
         {
             "name": "Private Tour of Montreal",
+            "city_name":"Montreal",
             "city_number": 11,
             "product_number": 6,
             "issues": [
@@ -194,6 +215,7 @@
         },
         {
             "name": "Best of Miami Tour from Fort Lauderdale",
+            "city_name":"Fort Lauderdale",
             "city_number": 12,
             "product_number": 1,
             "issues": [
@@ -204,6 +226,7 @@
         },
         {
             "name": "Best of Ottawa Small Group Walking Tour with Boat Cruise",
+            "city_name":"Ottawa",
             "city_number": 13,
             "product_number": 4,
             "issues": [
@@ -213,6 +236,7 @@
         },
         {
             "name": "Byward Market Food Tour",
+            "city_name":"Ottawa",
             "city_number": 13,
             "product_number": 5,
             "issues": [
@@ -221,6 +245,7 @@
         },
         {
             "name": "Vancouver Granville Island Food Walking Tour",
+            "city_name":"Vancouver",
             "city_number": 14,
             "product_number": 3,
             "issues": [
@@ -229,6 +254,7 @@
         },
         {
             "name": "Best of Philadelphia Small Group Tour",
+            "city_name":"Philadelphia",
             "city_number": 16,
             "product_number": 1,
             "issues": [
@@ -238,6 +264,7 @@
         },
         {
             "name": "Best of Philadelphia Small Group Walking Tour",
+            "city_name":"Philadelphia",
             "city_number": 16,
             "product_number": 3,
             "issues": [
@@ -247,6 +274,7 @@
         },
         {
             "name": "Saint John Reversing Falls Rapids Thrill Ride Jetboat",
+            "city_name":"Saint John",
             "city_number": 17,
             "product_number": 1,
             "issues": [
@@ -255,6 +283,7 @@
         },
         {
             "name": "Private Tour of Saint John New Brunswick",
+            "city_name":"Saint John",
             "city_number": 17,
             "product_number": 5,
             "issues": [
@@ -265,6 +294,7 @@
         },
         {
             "name": "Saint John Seafood Walking Tour",
+            "city_name":"Saint John",
             "city_number": 17,
             "product_number": 6,
             "issues": [
@@ -274,6 +304,7 @@
         },
         {
             "name": "Best of Savannah Small Group Tour",
+            "city_name":"Savannah",
             "city_number": 18,
             "product_number": 1,
             "issues": [
@@ -283,6 +314,7 @@
         },
         {
             "name": "Savannah Walking Ghost Tour",
+            "city_name":"Savannah",
             "city_number": 18,
             "product_number": 3,
             "issues": [
@@ -292,6 +324,7 @@
         },
         {
             "name": "Sweet Savannah Evening Dessert Food Walking Tour",
+            "city_name":"Savannah",
             "city_number": 18,
             "product_number": 4,
             "issues": [
@@ -300,6 +333,7 @@
         },
         {
             "name": "Best of Memphis Walking Tour with Riverboat Cruise",
+            "city_name":"Memphis",
             "city_number": 25,
             "product_number": 1,
             "issues": [
@@ -308,6 +342,7 @@
         },
         {
             "name": "Las Vegas Fremont Street Walking Tour",
+            "city_name":"Las Vegas",
             "city_number": 26,
             "product_number": 1,
             "issues": [
@@ -316,6 +351,7 @@
         },
         {
             "name": "Best of Dallas Tour with Observation Deck",
+            "city_name":"Dallas",
             "city_number": 30,
             "product_number": 1,
             "issues": [
@@ -326,6 +362,7 @@
         },
         {
             "name": "Dallas Deep Ellum Southern Comfort Food Walking Tour",
+            "city_name":"Dallas",
             "city_number": 30,
             "product_number": 4,
             "issues": [
@@ -334,6 +371,7 @@
         },
         {
             "name": "Best of Sedona Tour",
+            "city_name":"Sedona",
             "city_number": 35,
             "product_number": 1,
             "issues": [
@@ -342,6 +380,7 @@
         },
         {
             "name": "Scenic Sedona Stargazing Night Tour",
+            "city_name":"Sedona",
             "city_number": 35,
             "product_number": 2,
             "issues": [
@@ -350,6 +389,7 @@
         },
         {
             "name": "Famous Taco's of Houston Food Walking Tour",
+            "city_name":"Houston",
             "city_number": 36,
             "product_number": 3,
             "issues": [
