@@ -102,5 +102,5 @@ class LinkChecker:
 
         self.driver.quit()
     
-# sardar = LinkChecker()
-# sardar.check_links()
+ptr = LinkChecker()
+ptr.check_links()
