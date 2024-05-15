@@ -84,9 +84,8 @@ class LinkChecker:
                             invalid_links.append({"link": link, "page_number": j, "blog_number": i, "status_code": response.status_code})
                             print(f"Link '{link}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
                     self.driver.back()
-                except Exception as e:
-                    print("An error occurred: ", str(e))
-                    print("Traceback: ", traceback.format_exc())
+                except:
+                    print('error')
                     pass
         data = {
             "total_links": total_links,
