@@ -92,11 +92,11 @@ class LinkChecker:
             "total_links": total_links,
             "valid_links_count": valid_links,
             "invalid_links_count": invalid_links_count,
-            "duplicate_links": total_links - valid_links - invalid_links_count,
+            "repeated_invalid_links": total_links - valid_links - invalid_links_count,
             "invalid_links": invalid_links
         }
 
-        with open("links_status_temp.json", "w") as json_file:
+        with open(f'reports\\blogs_invalid_links_{int(time.time())}.json', "w") as json_file:
             json.dump(data, json_file, indent=4)
         # LinkChecker.send_email()
 
