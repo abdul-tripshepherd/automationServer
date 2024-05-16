@@ -56,37 +56,36 @@ class LinkChecker:
 
         for j in range(1,14):
             base_selector = "#__next > main > div.min-h-screen > div > div:nth-child(5) > div > div:nth-child({})"
+            l = 9
+            if j==13:
+                l = 5
 
-            for i in range(1, 9):
-                try:
-                    for k in range(1,j):
-                        next_pg = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, '#pagination > div > ul > li.next > a')))
-                        next_pg.click()
-                        time.sleep(1)
-                    css_selector = base_selector.format(i)
-                    element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, css_selector)))
-                    element.click()
-                    if i == 1: 
-                        time.sleep(2)
-                    element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,"#__next > main > div.min-h-screen > div > div.lg\\:flex-row.flex-col.flex.gap-10.items-start.justify-center.relative.px-\\[4\\%\\].lg\\:px-\\[6\\%\\] > div.slug-__BLOGPAGE-sc-3179693b-0.kVEeAj")))
-                    html_content = element.get_attribute("innerHTML")
-                    soup = BeautifulSoup(html_content, "html.parser")
-                    anchor_tags = soup.find_all("a")
-                    links = [tag.get("href") for tag in anchor_tags]
-                    for link in links:
-                        total_links += 1
-                        response = requests.head(link)
-                        if response.status_code == 200:
-                            valid_links += 1
-                            print(f"Link '{link}' on Page {j}, Blog {i} is valid.") 
-                        else:
-                            invalid_links_count += 1
-                            invalid_links.append({"link": link, "page_number": j, "blog_number": i, "status_code": response.status_code})
-                            print(f"Link '{link}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
-                    self.driver.back()
-                except:
-                    print('error')
-                    pass
+            for i in range(1, l):
+                for k in range(1,j):
+                    next_pg = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, '#pagination > div > ul > li.next > a')))
+                    next_pg.click()
+                    time.sleep(1)
+                css_selector = base_selector.format(i)
+                element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, css_selector)))
+                element.click()
+                if i == 1: 
+                    time.sleep(2)
+                element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,"#__next > main > div.min-h-screen > div > div.lg\\:flex-row.flex-col.flex.gap-10.items-start.justify-center.relative.px-\\[4\\%\\].lg\\:px-\\[6\\%\\] > div.slug-__BLOGPAGE-sc-3179693b-0.kVEeAj")))
+                html_content = element.get_attribute("innerHTML")
+                soup = BeautifulSoup(html_content, "html.parser")
+                anchor_tags = soup.find_all("a")
+                links = [tag.get("href") for tag in anchor_tags]
+                for link in links:
+                    total_links += 1
+                    response = requests.head(link)
+                    if response.status_code == 200:
+                        valid_links += 1
+                        print(f"Link '{link}' on Page {j}, Blog {i} is valid.") 
+                    else:
+                        invalid_links_count += 1
+                        invalid_links.append({"link": link, "page_number": j, "blog_number": i, "status_code": response.status_code})
+                        print(f"Link '{link}' on Page {j}, Blog {i} is broken. Status code: {response.status_code}")
+                self.driver.back()
         data = {
             "total_links": total_links,
             "valid_links_count": valid_links,

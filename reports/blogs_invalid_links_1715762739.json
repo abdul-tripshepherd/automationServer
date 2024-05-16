@@ -1,0 +1,14 @@
+{
+    "total_links": 793,
+    "valid_links_count": 791,
+    "invalid_links_count": 1,
+    "repeated_invalid_links": 1,
+    "invalid_links": [
+        {
+            "link": "https://www.tripshepherd.com/tours/boston-city-tour",
+            "page_number": 12,
+            "blog_number": 8,
+            "status_code": 301
+        }
+    ]
+}
