@@ -95,7 +95,7 @@ class LinkChecker:
             "invalid_links": invalid_links
         }
 
-        with open(f'reports\\blogs_invalid_links_{int(time.time())}.json', "w") as json_file:
+        with open(f'reports/blogs_invalid_links_{int(time.time())}.json', "w") as json_file:
             json.dump(data, json_file, indent=4)
         # LinkChecker.send_email()
 
