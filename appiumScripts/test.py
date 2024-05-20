@@ -6,8 +6,6 @@ import time
 # Set desired capabilities
 desired_caps = {
     "platformName": "Android",
-    "platformVersion": "your_platform_version",
-    "deviceName": "your_device_name",
     "appPackage": "com.example.app",
     "appActivity": ".MainActivity",
     "automationName": "UiAutomator2"
